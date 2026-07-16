@@ -1,0 +1,5 @@
+dependencies:
+  - pip:
+      - msal
+      - pyyaml
+      - python-dotenv
