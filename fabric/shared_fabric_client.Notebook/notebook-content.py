@@ -17,6 +17,8 @@
 # MARKDOWN ********************
 
 # Este notebook implementa FabricClient, una clase que centraliza toda la comunicación HTTP con la API REST de Microsoft Fabric. En lugar de que cada notebook realice sus propias llamadas con requests, todos delegan esa responsabilidad en este cliente común, evitando código duplicado y facilitando el mantenimiento a medida que se incorporen nuevas operaciones. Al construirse, FabricClient obtiene sus credenciales desde shared_settings y solicita un Access Token mediante el flujo OAuth2 Client Credentials (MSAL), sin necesidad de autenticación interactiva. Una vez autenticado, expone métodos genéricos get() y post() que encapsulan la construcción de la URL, las cabeceras de autorización y el manejo de la respuesta, de forma que el resto de notebooks solo indican qué operación de Fabric quieren realizar, no cómo comunicarse con la API.
+# 
+# Esta clase se amplía con un conjunto de métodos específicos para el aprovisionamiento automático de recursos: creación de workspaces, carpetas, y los distintos tipos de activos analíticos (Lakehouse, Warehouse, Notebook, Pipeline, Eventstream, Eventhouse, ML Experiment, ML Model). Todos comparten una misma lógica interna (_create_item), evitando duplicar código para cada tipo de objeto: cada método público solo indica el endpoint de la API correspondiente, delegando la construcción de la petición HTTP al método privado compartido.
 
 
 # CELL ********************
@@ -66,6 +68,57 @@ class FabricClient:
         response = requests.post(f"{self.base_url}{endpoint}", headers=self.headers, json=body)
         response.raise_for_status()
         return response.json()
+
+    def _create_item(self, workspace_id, endpoint, display_name, folder_id=None):
+        body = {"displayName": display_name}
+        if folder_id:
+            body["folderId"] = folder_id
+        return self.post(f"/workspaces/{workspace_id}/{endpoint}", body)
+
+    def create_workspace(self, display_name, description=None):
+        body = {"displayName": display_name}
+        if description:
+            body["description"] = description
+        workspace = self.post("/workspaces", body)
+
+        # Sin esto, el workspace queda visible únicamente para el Service Principal
+        # que lo creó, invisible para los administradores humanos.
+        self.post(f"/workspaces/{workspace['id']}/roleAssignments", {
+            "principal": {
+                "id": "3780bf58-00ee-42a9-8b3a-530d328da07c",
+                "type": "Group"
+            },
+            "role": "Admin"
+        })
+
+        return workspace
+
+    def create_folder(self, workspace_id, display_name):
+        return self.post(f"/workspaces/{workspace_id}/folders", {"displayName": display_name})
+
+    def create_lakehouse(self, workspace_id, display_name, folder_id=None):
+        return self._create_item(workspace_id, "lakehouses", display_name, folder_id)
+
+    def create_warehouse(self, workspace_id, display_name, folder_id=None):
+        return self._create_item(workspace_id, "warehouses", display_name, folder_id)
+
+    def create_notebook(self, workspace_id, display_name, folder_id=None):
+        return self._create_item(workspace_id, "notebooks", display_name, folder_id)
+
+    def create_pipeline(self, workspace_id, display_name, folder_id=None):
+        return self._create_item(workspace_id, "dataPipelines", display_name, folder_id)
+
+    def create_eventstream(self, workspace_id, display_name, folder_id=None):
+        return self._create_item(workspace_id, "eventstreams", display_name, folder_id)
+
+    def create_eventhouse(self, workspace_id, display_name, folder_id=None):
+        return self._create_item(workspace_id, "eventhouses", display_name, folder_id)
+
+    def create_ml_experiment(self, workspace_id, display_name, folder_id=None):
+        return self._create_item(workspace_id, "mlExperiments", display_name, folder_id)
+
+    def create_ml_model(self, workspace_id, display_name, folder_id=None):
+        return self._create_item(workspace_id, "mlModels", display_name, folder_id)
 
 
 # METADATA ********************
