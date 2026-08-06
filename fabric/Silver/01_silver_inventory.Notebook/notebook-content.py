@@ -22,9 +22,11 @@
 
 # MARKDOWN ********************
 
-# Capa Silver — principio general. Toma los datos crudos de Bronze y los limpia: aplana estructuras anidadas, aplica tipos correctos, selecciona solo las columnas relevantes y las renombra con nombres claros para negocio. Sigue teniendo el mismo grano que su fuente Bronze correspondiente — todavía no se cruza información entre capacidades, workspaces e items; esa unión es responsabilidad exclusiva de la capa Gold. Mantener esta separación evita que un cambio en la lógica de unión obligue a repetir la limpieza de cada fuente.
+# ## Silver — `inventory` (capacidades, workspaces, items)
 # 
-# Qué se limpia de cada fuente. De bronze_capacities, los campos administrativos (admins, tenantKeyId) se descartan por no aportar al modelo de inventario. De bronze_workspaces y bronze_items, se conservan los identificadores de relación (capacityId, workspaceId) para el join posterior en Gold. De bronze_items, creatorPrincipal —una estructura anidada— se aplana a dos columnas simples (creator_name, creator_type), y lastUpdatedDate se convierte de texto a tipo timestamp.
+# **Qué hace.** Limpia cada fuente de Bronze por separado, sin cruzarlas todavía: aplana estructuras anidadas, tipa correctamente, selecciona solo las columnas relevantes y las renombra a snake_case. Mantiene el mismo grano que su Bronze correspondiente — la unión entre capacidades, workspaces e items es responsabilidad exclusiva de Gold, para no repetir la limpieza si cambia la lógica de unión.
+# 
+# **Qué se limpia de cada fuente.** De `capacities`, se descartan campos administrativos (`admins`, `tenantKeyId`). De `items`, `creatorPrincipal` (anidado) se aplana a `creator_name`/`creator_type`, y `lastUpdatedDate` se tipa como timestamp. De todas, se conservan los identificadores de relación (`capacityId`, `workspaceId`) para el join en Gold.
 
 
 # CELL ********************

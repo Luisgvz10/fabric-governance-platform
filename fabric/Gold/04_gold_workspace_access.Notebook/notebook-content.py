@@ -29,28 +29,6 @@
 
 # CELL ********************
 
-%run shared_fabric_client
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-%run shared_settings
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
 # DEPENDENCIAS Y CLIENTES
 
 import json

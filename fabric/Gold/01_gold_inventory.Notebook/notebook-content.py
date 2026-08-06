@@ -22,9 +22,10 @@
 
 # MARKDOWN ********************
 
-# Capa Gold — principio general. Es la capa lista para consumo: combina las tablas Silver (limpias pero todavía separadas por fuente) en el modelo final que usará el modelo semántico de gobernanza. Aquí sí se aplican las reglas de unión entre entidades — es la única capa donde tiene sentido hacerlo, porque es la única pensada para ser consultada directamente por herramientas de análisis, no por otros procesos de transformación.
+# ## Gold — `dim_inventory`
 # 
-# Qué construye este notebook. La dimensión de inventario (gold_dim_inventory) que se planteó al inicio de la Fase 2: cada fila es un item de Fabric, con los atributos de su workspace y de la capacidad de ese workspace ya incorporados mediante join, en lugar de mantenerlos en tablas separadas. Los joins son left porque no todos los workspaces tienen una capacidad asignada (los personales, por ejemplo) — un inner join perdería esos items silenciosamente.
+# **Qué hace.** Construye la dimensión de inventario combinando las tres tablas Silver mediante `join`: cada fila es un item de Fabric con los atributos de su workspace y de la capacidad de ese workspace ya incorporados, en vez de mantenerlos separados. Los `join` son `left` porque no todos los workspaces tienen capacidad asignada (los personales, por ejemplo) — un `inner join` perdería esos items en silencio. Es la única capa donde tiene sentido cruzar entidades: la única pensada para consultarse directamente desde herramientas de análisis.
+
 
 # CELL ********************
 

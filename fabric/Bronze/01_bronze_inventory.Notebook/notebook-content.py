@@ -22,13 +22,11 @@
 
 # MARKDOWN ********************
 
-# En una arquitectura Medallion, la capa Bronze almacena los datos exactamente como llegan de la fuente, sin transformar ni limpiar. Su función no es ser consultable directamente por el modelo de gobierno, sino actuar como punto de recuperación: si la lógica de limpieza de la capa Silver cambia o contiene un error, se puede reprocesar desde Bronze sin volver a llamar a la API — importante aquí porque las APIs de administración de Fabric y Power BI tienen un límite de 200 peticiones/hora (5.2.1 de la memoria), un recurso que conviene no gastar dos veces por el mismo dato.
+# ## Bronze — `inventory` (capacidades, workspaces, items)
 # 
-# Qué extrae este notebook. El dominio de "inventario" de la plataforma: capacidades, workspaces e items, cada uno desde su fuente correspondiente — /admin/capacities de la API de Power BI, y /admin/workspaces / /admin/items de la API de Fabric, paginados mediante continuationToken a través de get_paginated() (shared_fabric_client). Ninguna de las tres llamadas requiere permisos adicionales a los ya concedidos al Service Principal en la Fase 1.
+# **Qué se extrae.** El inventario completo de la plataforma — capacidades (`/admin/capacities`, Power BI), workspaces e items (`/admin/workspaces`, `/admin/items`, Fabric) — paginado con `get_paginated()`. Ninguna llamada requiere permisos adicionales a los ya concedidos en la Fase 1.
 # 
-# Por qué spark.read.json en vez de spark.createDataFrame directo. Las respuestas de estas APIs son JSON heterogéneo: campos como creatorPrincipal o tags no siempre están presentes ni tienen la misma forma en todos los registros. createDataFrame infiere el esquema a partir de objetos Python de una vez y falla si no puede determinar el tipo de un campo; spark.read.json está diseñado específicamente para fusionar esquemas distintos entre registros, por lo que resulta mucho más robusto para datos de una API externa cuya forma exacta no se controla.
-# 
-# Por qué overwriteSchema. Cada ejecución sustituye por completo los datos anteriores (mode("overwrite")); como todavía no existe historificación (prevista para la Fase 5), el esquema también puede cambiar libremente de una ejecución a otra sin que eso suponga pérdida de información relevante.
+# **Por qué esta capa.** Bronze guarda el dato tal cual llega, sin transformar, como punto de recuperación: si la limpieza de Silver cambia o falla, se reprocesa desde aquí sin repetir llamadas a una API limitada a 200 peticiones/hora (5.2.1). Se usa `spark.read.json()` en vez de `spark.createDataFrame()` porque el JSON de estas APIs es heterogéneo entre registros, y `overwrite`/`overwriteSchema` porque esta entidad todavía no tiene historificación (Fase 5).
 
 
 # CELL ********************

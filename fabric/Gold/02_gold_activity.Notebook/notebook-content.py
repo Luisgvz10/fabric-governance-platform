@@ -33,6 +33,8 @@
 
 # CELL ********************
 
+# ESCRITURA EN GOLD
+
 gold_fact_activity = spark.table("silver.activity")
 
 gold_fact_activity.write.format("delta").mode("overwrite").option("overwriteSchema", "true").saveAsTable("gold.fact_activity")

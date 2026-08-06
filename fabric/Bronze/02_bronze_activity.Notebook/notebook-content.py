@@ -26,24 +26,11 @@
 
 # MARKDOWN ********************
 
-# Historificación mediante MERGE. La API de Activity Events solo conserva actividad de los últimos 28 días (5.2 — límite de cobertura histórica, no de tasa). Guardar con overwrite, como en el inventario, perdería en cada ejecución los eventos que hubieran caducado en el API desde la ejecución anterior. En su lugar, bronze_activity se actualiza mediante MERGE: cada evento nuevo (identificado por su Id, único e inmutable) se inserta solo si no existe ya, de forma que la tabla acumula histórico indefinidamente, más allá de la ventana de 28 días que ofrece el API en un momento dado. Silver y Gold no necesitan este tratamiento — se reconstruyen por completo desde Bronze en cada ejecución, ya que la única fuente de datos nuevos es Bronze, y a este volumen reconstruirlas es barato.
+# ## Bronze — `activity`
 # 
-# Recorrido día a día. startDateTime y endDateTime deben caer dentro del mismo día UTC, así que no es posible pedir los 28 días en una sola llamada — el notebook itera día por día, paginando cada uno con get_paginated().
-
-
-# MARKDOWN ********************
-
-# ## Extracción de Activity Events — notas de depuración
+# **Qué se extrae.** El registro de auditoría de Activity Events (`/admin/activityevents`, Power BI), recorrido día a día — la API exige que `startDateTime`/`endDateTime` caigan en el mismo día UTC, así que no se puede pedir la ventana completa de 28 días en una sola llamada.
 # 
-# La primera versión de este notebook fallaba con `400 Bad Request` sin explicación clara. Se encontraron tres causas independientes:
-# 
-# 1. **Ventana de 28 días, no 27**: pedir datos de hace exactamente 28 días es rechazado. El límite real es 27 días completos + el día actual.
-# 2. **Formato de fecha**: la Referencia de la API muestra `'2019-08-13T07:55:00.000Z'` (con milisegundos y `Z`), pero ese formato es rechazado. El único formato aceptado, documentado solo en la guía conceptual de Microsoft, es sin milisegundos ni `Z`: `'2019-08-31T00:00:00'`. Las comillas simples deben viajar literales en la URL (no como `%27`).
-# 3. **Paginación**: el `continuationToken` que devuelve la API ya viene codificado para URL. Reenviarlo vía el diccionario `params` de `requests` lo codifica una segunda vez y lo corrompe. La solución es usar el campo `continuationUri` de la respuesta, que ya trae la URL completa lista para usar — no reconstruir la petición a mano.
-# 
-# **Lección importante**: una versión intermedia envolvía la llamada en `try/except` para que el notebook no fallara. "Funcionaba" en el sentido de no dar error, pero enmascaraba el bug #3: solo recuperaba 38 eventos de los 3.789 reales (perdía en silencio todas las páginas siguientes a la primera). Un pipeline sin errores no es lo mismo que un pipeline correcto — se descartó el `try/except` y se corrigió la causa raíz.
-# 
-# **Resultado**: 3.789 eventos extraídos (2026-07-08 a 2026-08-04), consolidados en `bronze.activity` vía `MERGE` (ver celda de escritura).
+# **Por qué `MERGE` y no `overwrite`.** La API solo conserva 28 días de actividad; con `overwrite` se perdería en cada ejecución lo que hubiera caducado desde la anterior. `bronze.activity` se actualiza por `MERGE` sobre `Id` (único e inmutable), acumulando histórico indefinidamente. Silver y Gold no necesitan este tratamiento — se reconstruyen enteras desde Bronze en cada ejecución.
 
 
 # CELL ********************

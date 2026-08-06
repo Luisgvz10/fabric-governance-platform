@@ -22,15 +22,11 @@
 
 # MARKDOWN ********************
 
-# ## Silver — Limpieza y tipado de `bronze.activity`
+# ## Silver — `activity`
 # 
-# **Objetivo de esta capa.** Bronze almacena el evento de actividad tal cual lo entrega la API de Power BI: JSON crudo, con los nombres de campo originales de Microsoft (`Id`, `CreationTime`, `UserId`...) y sin tipar — por ejemplo, `CreationTime` llega como texto, no como fecha real. Silver aplica sobre esos datos crudos el mismo tratamiento que ya se aplicó al inventario en `00_silver_inventory` (Fase 3): seleccionar solo los campos con valor analítico, renombrarlos a snake_case (convención del proyecto para todo lo que no sea el JSON de origen) y tipar correctamente las fechas, dejando la tabla lista para construir la capa Gold.
+# **Qué hace.** Bronze guarda el evento tal cual lo entrega la API (nombres de Microsoft, sin tipar). Silver aplica el mismo tratamiento que `01_silver_inventory`: selecciona solo los campos con valor analítico —identificador, marca de tiempo, operación, usuario y su tipo, workload, item y workspace afectados, éxito de la operación—, los renombra a snake_case y tipa `CreationTime` como timestamp. Se descartan campos de bajo valor (IP, user agent); siguen disponibles sin pérdida en `bronze.activity`.
 # 
-# **Qué campos se conservan y por qué.** De todos los campos que devuelve el Activity Events, se seleccionan los que permiten responder las preguntas típicas de un análisis de gobierno de datos — *quién hizo qué, sobre qué recurso, cuándo, y si tuvo éxito*: identificador del evento, marca de tiempo, tipo de operación/actividad, usuario y su tipo, carga de trabajo (`Workload`), item y workspace afectados, y si la operación tuvo éxito. Se descartan deliberadamente campos de bajo valor para este análisis (IP de cliente, user agent, etc.); si hicieran falta más adelante, siguen disponibles sin pérdida en `bronze.activity`, que conserva el registro completo.
-# 
-# **Por qué `overwrite` y no `MERGE`.** La historificación real —conservar actividad más allá de la ventana de 28 días que ofrece la API— ya se resuelve en Bronze mediante `MERGE` (ver Bronze/01_bronze_activity). Silver no necesita repetir esa lógica: simplemente relee `bronze.activity` completa en cada ejecución y reconstruye `silver.activity` desde cero (`overwrite`). Es la misma decisión ya tomada para el inventario: correcto y barato a este volumen de datos, y evita mantener la deduplicación en dos sitios distintos.
-# 
-# **Nota de verificación.** Los nombres de columna usados (`Id`, `CreationTime`, etc.) corresponden al esquema estándar documentado por Microsoft para Activity Events. Como `bronze.activity` se construyó infiriendo el esquema directamente del JSON real (ver Bronze/01_bronze_activity), se verificó con `printSchema()` que los nombres reales coinciden antes de dar la selección por buena.
+# **Por qué `overwrite` y no `MERGE`.** La historificación ya se resuelve en Bronze (`02_bronze_activity`). Silver relee `bronze.activity` completa y reconstruye `silver.activity` desde cero en cada ejecución — misma decisión que en inventario: barato a este volumen, evita duplicar la deduplicación en dos sitios.
 
 
 # CELL ********************
