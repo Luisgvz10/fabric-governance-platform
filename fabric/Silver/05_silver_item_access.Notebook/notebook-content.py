@@ -75,7 +75,7 @@ silver_item_access = (
         F.col("workspaceId").alias("workspace_id"),
         F.col("principal.id").alias("principal_id"),
         F.col("principal.displayName").alias("principal_display_name"),
-        F.col("principal.userDetails.userPrincipalName").alias("userPrincipalName"),
+        F.col("principal.userDetails.userPrincipalName").alias("user_principal_name"),
         F.col("principal.type").alias("principal_type"),
         F.col("itemAccessDetails.type").alias("item_type"),
         F.explode("itemAccessDetails.permissions").alias("permission"),

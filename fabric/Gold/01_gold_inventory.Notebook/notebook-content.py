@@ -54,7 +54,7 @@ print(f"gold_dim_inventory: {gold_dim_inventory.count()} filas")
 
 # CELL ********************
 
-df = spark.sql("SELECT * FROM lh_bronze_metadata.dbo.gold_dim_inventory LIMIT 1000")
+df = spark.sql("SELECT * FROM lh_metadata.gold.dim_inventory LIMIT 1000")
 display(df)
 
 # METADATA ********************

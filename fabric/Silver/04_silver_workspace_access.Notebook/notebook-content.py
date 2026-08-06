@@ -58,11 +58,6 @@
 import json
 from pyspark.sql import functions as F
 
-fabric = FabricClient()
-powerbi = FabricClient(
-    scope="https://analysis.windows.net/powerbi/api/.default",
-    base_url="https://api.powerbi.com/v1.0/myorg"
-)
 
 # METADATA ********************
 

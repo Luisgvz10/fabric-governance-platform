@@ -73,6 +73,7 @@
 # DEPENDENCIAS Y CLIENTES
 
 import json
+import requests
 from datetime import datetime, timedelta, timezone
 from delta.tables import DeltaTable
 
@@ -92,8 +93,6 @@ powerbi = FabricClient(
 
 # CELL ********************
 
-import requests
-
 def get_activity_events_for_day(day):
     endpoint = f"/admin/activityevents?startDateTime='{day.isoformat()}T00:00:00'&endDateTime='{day.isoformat()}T23:59:59'"
     events = []
@@ -107,8 +106,6 @@ def get_activity_events_for_day(day):
         events.extend(response.get("activityEventEntities", []))
         next_uri = response.get("continuationUri")
     return events
-
-
 
 # METADATA ********************
 
