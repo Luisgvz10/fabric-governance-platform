@@ -1,0 +1,147 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "3bdba5cdf38d5da59c66",
+  "position": {
+    "x": 26.923076923076923,
+    "y": 225.64102564102564,
+    "z": 10000,
+    "height": 826.92307692307691,
+    "width": 1857.6923076923076,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_inventory"
+                    }
+                  },
+                  "Property": "workspace_name"
+                }
+              },
+              "queryRef": "dim_inventory.workspace_name",
+              "nativeQueryRef": "workspace_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_inventory"
+                    }
+                  },
+                  "Property": "item_type"
+                }
+              },
+              "queryRef": "dim_inventory.item_type",
+              "nativeQueryRef": "item_type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_inventory"
+                    }
+                  },
+                  "Property": "item_name"
+                }
+              },
+              "queryRef": "dim_inventory.item_name",
+              "nativeQueryRef": "item_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lineage"
+                    }
+                  },
+                  "Property": "target_type"
+                }
+              },
+              "queryRef": "fact_lineage.target_type",
+              "nativeQueryRef": "target_type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lineage"
+                    }
+                  },
+                  "Property": "target_name"
+                }
+              },
+              "queryRef": "fact_lineage.target_name",
+              "nativeQueryRef": "target_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_lineage"
+                    }
+                  },
+                  "Property": "relationship_type"
+                }
+              },
+              "queryRef": "fact_lineage.relationship_type",
+              "nativeQueryRef": "relationship_type"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_inventory"
+                  }
+                },
+                "Property": "workspace_name"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Users '"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

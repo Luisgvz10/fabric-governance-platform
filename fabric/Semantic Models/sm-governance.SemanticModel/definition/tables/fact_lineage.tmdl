@@ -1,0 +1,56 @@
+table fact_lineage
+	lineageTag: 2f575948-5602-4b4c-849f-2e78bc62aa0d
+	sourceLineageTag: [gold].[fact_lineage]
+
+	column source_id
+		dataType: string
+		lineageTag: dfe51681-0f1a-405a-bcdc-0b55efefc119
+		sourceLineageTag: source_id
+		summarizeBy: none
+		sourceColumn: source_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column relationship_type
+		dataType: string
+		lineageTag: 6982ef54-2098-4c2e-ab6a-9a220a7f9e8b
+		sourceLineageTag: relationship_type
+		summarizeBy: none
+		sourceColumn: relationship_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_id
+		dataType: string
+		lineageTag: 69a362fe-715f-467a-ad03-05e284b9735c
+		sourceLineageTag: target_id
+		summarizeBy: none
+		sourceColumn: target_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_type
+		dataType: string
+		lineageTag: e278ee9c-3938-4a67-b5ac-654c6b87e4cf
+		sourceLineageTag: target_type
+		summarizeBy: none
+		sourceColumn: target_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_name
+		dataType: string
+		lineageTag: 2ae07b9f-86ca-48ea-a1fc-dfdae97ca788
+		sourceLineageTag: target_name
+		summarizeBy: none
+		sourceColumn: target_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_lineage = entity
+		mode: directLake
+		source
+			entityName: fact_lineage
+			schemaName: gold
+			expressionSource: 'DirectLake - lh_metadata'
+

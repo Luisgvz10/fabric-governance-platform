@@ -1,0 +1,98 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "393162e3173f0723dcd0",
+  "position": {
+    "x": 533.33333333333337,
+    "y": 224.35897435897436,
+    "z": 3000,
+    "height": 826.92307692307691,
+    "width": 537.17948717948718,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_workspace"
+                    }
+                  },
+                  "Property": "workspace_name"
+                }
+              },
+              "queryRef": "dim_workspace.workspace_name",
+              "nativeQueryRef": "workspace_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_workspace_access"
+                    }
+                  },
+                  "Property": "role"
+                }
+              },
+              "queryRef": "fact_workspace_access.role",
+              "nativeQueryRef": "role"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_user"
+                    }
+                  },
+                  "Property": "display_name"
+                }
+              },
+              "queryRef": "dim_user.display_name",
+              "nativeQueryRef": "display_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_user"
+                    }
+                  },
+                  "Property": "email"
+                }
+              },
+              "queryRef": "dim_user.email",
+              "nativeQueryRef": "email"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Workspace Access'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

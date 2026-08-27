@@ -1,0 +1,47 @@
+table dim_user
+	lineageTag: 8c9f4dda-49ab-4e91-a4b8-2a1d0055c3b4
+	sourceLineageTag: [gold].[dim_user]
+
+	column principal_id
+		dataType: string
+		lineageTag: c3318610-6764-4935-88db-1613f61f7821
+		sourceLineageTag: principal_id
+		summarizeBy: none
+		sourceColumn: principal_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column display_name
+		dataType: string
+		lineageTag: 2df48ee0-656c-4b57-95b7-76bfe2f2bc8c
+		sourceLineageTag: display_name
+		summarizeBy: none
+		sourceColumn: display_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column principal_type
+		dataType: string
+		lineageTag: af23dca6-8b96-408d-a124-87b9dedb7848
+		sourceLineageTag: principal_type
+		summarizeBy: none
+		sourceColumn: principal_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: 335d78ce-05c6-457d-b9c4-02e420c93166
+		sourceLineageTag: email
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_user = entity
+		mode: directLake
+		source
+			entityName: dim_user
+			schemaName: gold
+			expressionSource: 'DirectLake - lh_metadata'
+

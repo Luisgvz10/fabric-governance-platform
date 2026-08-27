@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "rp-governance-validation"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "19940d88-831c-8c70-4a21-bd43d34706f5"
+  }
+}

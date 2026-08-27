@@ -1,0 +1,83 @@
+table fact_item_access
+	lineageTag: e3d6629a-b32d-42bc-bedf-2f841cbf0e43
+	sourceLineageTag: [gold].[fact_item_access]
+
+	column item_id
+		dataType: string
+		lineageTag: ce86305f-3075-4d04-83ba-6656d4705d4c
+		sourceLineageTag: item_id
+		summarizeBy: none
+		sourceColumn: item_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspace_id
+		dataType: string
+		lineageTag: 3ac6732e-4f5d-4ee8-aed7-66c36469c8e9
+		sourceLineageTag: workspace_id
+		summarizeBy: none
+		sourceColumn: workspace_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column principal_id
+		dataType: string
+		lineageTag: f1a4c839-575a-4a78-936d-30b46c6ca5a3
+		sourceLineageTag: principal_id
+		summarizeBy: none
+		sourceColumn: principal_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column principal_display_name
+		dataType: string
+		lineageTag: 0d2048b8-1ada-429b-97bf-3aa6559fada4
+		sourceLineageTag: principal_display_name
+		summarizeBy: none
+		sourceColumn: principal_display_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column principal_type
+		dataType: string
+		lineageTag: dc59864b-8683-47b8-b8e9-3dd0f15171eb
+		sourceLineageTag: principal_type
+		summarizeBy: none
+		sourceColumn: principal_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_type
+		dataType: string
+		lineageTag: 4bda3621-3d83-46d8-85b5-1e6cd2b3697c
+		sourceLineageTag: item_type
+		summarizeBy: none
+		sourceColumn: item_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column permission
+		dataType: string
+		lineageTag: 90475c66-44c0-44c8-9639-a504680aba50
+		sourceLineageTag: permission
+		summarizeBy: none
+		sourceColumn: permission
+
+		annotation SummarizationSetBy = Automatic
+
+	column user_principal_name
+		dataType: string
+		lineageTag: 5e4a3150-d20f-4248-aa33-3fec008a1dac
+		sourceLineageTag: user_principal_name
+		summarizeBy: none
+		sourceColumn: user_principal_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_item_access = entity
+		mode: directLake
+		source
+			entityName: fact_item_access
+			schemaName: gold
+			expressionSource: 'DirectLake - lh_metadata'
+

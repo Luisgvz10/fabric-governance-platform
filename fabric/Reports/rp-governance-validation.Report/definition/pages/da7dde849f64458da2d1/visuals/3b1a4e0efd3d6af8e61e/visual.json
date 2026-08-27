@@ -1,0 +1,130 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "3b1a4e0efd3d6af8e61e",
+  "position": {
+    "x": 874.35897435897436,
+    "y": 20.512820512820511,
+    "z": 4005,
+    "height": 76.92307692307692,
+    "width": 1021.7948717948717,
+    "tabOrder": 4006
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Human Users"
+                }
+              },
+              "queryRef": "_Measures.Total Human Users",
+              "nativeQueryRef": "Total Human Users"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Principals"
+                }
+              },
+              "queryRef": "_Measures.Total Principals",
+              "nativeQueryRef": "Total Principals"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "% Direct User Access"
+                }
+              },
+              "queryRef": "_Measures.% Direct User Access",
+              "nativeQueryRef": "% Direct User Access"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Distinct Principals With Access"
+                }
+              },
+              "queryRef": "_Measures.Distinct Principals With Access",
+              "nativeQueryRef": "Distinct Principals With Access"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Item Permissions"
+                }
+              },
+              "queryRef": "_Measures.Total Item Permissions",
+              "nativeQueryRef": "Total Item Permissions"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Total Human Users"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "accentBar": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "bab75017af074b2efa31",
+  "position": {
+    "x": 40.107146876758584,
+    "y": 257.23894203714127,
+    "z": 3000,
+    "height": 780.01485649971869,
+    "width": 1157.5752391671356,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_capacity_metrics"
+                    }
+                  },
+                  "Property": "date"
+                }
+              },
+              "queryRef": "fact_capacity_metrics.date",
+              "nativeQueryRef": "date",
+              "active": true,
+              "format": "d"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_capacity_metrics"
+                    }
+                  },
+                  "Property": "start_of_hour"
+                }
+              },
+              "queryRef": "fact_capacity_metrics.start_of_hour",
+              "nativeQueryRef": "start_of_hour",
+              "active": true,
+              "format": "t"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_capacity_metrics"
+                        }
+                      },
+                      "Property": "background_pct"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Avg(fact_capacity_metrics.background_pct)",
+              "nativeQueryRef": "Sum of background_pct"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_capacity_metrics"
+                        }
+                      },
+                      "Property": "interactive_pct"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Avg(fact_capacity_metrics.interactive_pct)",
+              "nativeQueryRef": "Sum of interactive_pct"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_capacity_metrics"
+                  }
+                },
+                "Property": "date"
+              }
+            },
+            "direction": "Ascending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_capacity_metrics"
+                  }
+                },
+                "Property": "start_of_hour"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

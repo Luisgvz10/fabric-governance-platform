@@ -1,0 +1,107 @@
+table _Measures
+	lineageTag: a1b2c3d4-0001-4000-8000-000000000001
+
+	measure 'Total Activities' = COUNTROWS(fact_activity)
+		formatString: #,0
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000002
+
+	measure 'Success Rate %' =
+			DIVIDE(
+			    CALCULATE(COUNTROWS(fact_activity), fact_activity[is_success] = TRUE),
+			    COUNTROWS(fact_activity)
+			)
+		formatString: 0.0%
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000003
+
+	measure '% Service Actor Activities' =
+			DIVIDE(
+			    CALCULATE(COUNTROWS(fact_activity), dim_user[principal_type] = "Service"),
+			    COUNTROWS(fact_activity)
+			)
+		formatString: 0.0%
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000004
+
+	measure 'Total Item Permissions' = COUNTROWS(fact_item_access)
+		formatString: #,0
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000005
+
+	measure '% Direct User Access' =
+			DIVIDE(
+			    CALCULATE(COUNTROWS(fact_item_access), dim_user[principal_type] = "User"),
+			    COUNTROWS(fact_item_access)
+			)
+		formatString: 0.0%
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000006
+
+	measure 'Distinct Principals With Access' = DISTINCTCOUNT(fact_item_access[principal_id])
+		formatString: #,0
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000007
+
+	measure 'Total Tenant Settings' = COUNTROWS(dim_tenant_setting)
+		formatString: #,0
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000008
+
+	measure '% Enabled Tenant Settings' =
+			DIVIDE(
+			    CALCULATE(COUNTROWS(dim_tenant_setting), dim_tenant_setting[enabled] = TRUE),
+			    COUNTROWS(dim_tenant_setting)
+			)
+		formatString: 0.0%
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000009
+
+	measure 'Total Lineage Relationships' = COUNTROWS(fact_lineage)
+		formatString: #,0
+		lineageTag: a1b2c3d4-0001-4000-8000-00000000000a
+
+	measure '% Resolved Lineage' =
+			DIVIDE(
+			    CALCULATE(COUNTROWS(fact_lineage), fact_lineage[target_name] <> "Fuente Externa"),
+			    COUNTROWS(fact_lineage)
+			)
+		formatString: 0.0%
+		lineageTag: a1b2c3d4-0001-4000-8000-00000000000b
+
+	measure 'Avg Background CU %' = AVERAGE(fact_capacity_metrics[background_pct])
+		formatString: 0.0
+		lineageTag: a1b2c3d4-0001-4000-8000-00000000000c
+
+	measure 'Avg Interactive CU %' = AVERAGE(fact_capacity_metrics[interactive_pct])
+		formatString: 0.0
+		lineageTag: a1b2c3d4-0001-4000-8000-00000000000d
+
+	measure 'Hours Over 100% CU' =
+			CALCULATE(
+			    COUNTROWS(fact_capacity_metrics),
+			    fact_capacity_metrics[background_pct] > 100
+			)
+		formatString: #,0
+		lineageTag: a1b2c3d4-0001-4000-8000-00000000000e
+
+	measure 'Total Workspaces' = COUNTROWS(dim_workspace)
+		formatString: #,0
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000011
+
+	measure 'Total Capacities' = DISTINCTCOUNT(dim_workspace[capacity_id])
+		formatString: #,0
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000012
+
+	measure 'Total Principals' = COUNTROWS(dim_user)
+		formatString: #,0
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000013
+
+	measure 'Total Human Users' =
+			CALCULATE(
+			    COUNTROWS(dim_user),
+			    dim_user[principal_type] = "User"
+			)
+		formatString: #,0
+		lineageTag: a1b2c3d4-0001-4000-8000-000000000014
+
+	measure 'Total Items' = COUNTROWS(dim_inventory)
+		formatString: #,0
+		lineageTag: a1b2c3d4-0001-4000-8000-00000000000f
+
+	partition _Measures = calculated
+		mode: import
+		source = "Measures"
+

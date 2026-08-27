@@ -1,0 +1,148 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "f26d096ebd244d558da7",
+  "position": {
+    "x": 365.85365853658539,
+    "y": 219.51219512195124,
+    "z": 4000,
+    "height": 806.09756097560978,
+    "width": 1079.2682926829268,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_inventory"
+                    }
+                  },
+                  "Property": "capacity_name"
+                }
+              },
+              "queryRef": "dim_inventory.capacity_name",
+              "nativeQueryRef": "capacity_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_inventory"
+                    }
+                  },
+                  "Property": "workspace_name"
+                }
+              },
+              "queryRef": "dim_inventory.workspace_name",
+              "nativeQueryRef": "workspace_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_inventory"
+                    }
+                  },
+                  "Property": "item_type"
+                }
+              },
+              "queryRef": "dim_inventory.item_type",
+              "nativeQueryRef": "item_type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_inventory"
+                    }
+                  },
+                  "Property": "item_name"
+                }
+              },
+              "queryRef": "dim_inventory.item_name",
+              "nativeQueryRef": "item_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_inventory"
+                    }
+                  },
+                  "Property": "item_state"
+                }
+              },
+              "queryRef": "dim_inventory.item_state",
+              "nativeQueryRef": "item_state"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_inventory"
+                  }
+                },
+                "Property": "item_state"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "124.20522817369897D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_inventory.capacity_name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "389.63783650825394D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_inventory.item_name"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

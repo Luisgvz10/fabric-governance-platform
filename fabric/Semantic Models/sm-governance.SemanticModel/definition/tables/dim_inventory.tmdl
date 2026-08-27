@@ -1,0 +1,165 @@
+table dim_inventory
+	lineageTag: e1609433-7a44-4dd8-8a83-6c5b5acf4ae6
+	sourceLineageTag: [gold].[dim_inventory]
+
+	column capacity_id
+		dataType: string
+		lineageTag: 17696ed3-f253-47d5-861e-94c39b04ee56
+		sourceLineageTag: capacity_id
+		summarizeBy: none
+		sourceColumn: capacity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspace_id
+		dataType: string
+		lineageTag: 0a178d82-d695-4af7-ba2c-4c1bcaa0ba53
+		sourceLineageTag: workspace_id
+		summarizeBy: none
+		sourceColumn: workspace_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_id
+		dataType: string
+		lineageTag: d1b54046-0722-482a-a9b8-e17458e56c03
+		sourceLineageTag: item_id
+		summarizeBy: none
+		sourceColumn: item_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_name
+		dataType: string
+		lineageTag: 1beb64a9-fc85-4bc3-82f2-75a2522ea385
+		sourceLineageTag: item_name
+		summarizeBy: none
+		sourceColumn: item_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_type
+		dataType: string
+		lineageTag: e5950fcc-966b-4f8d-8c28-f915627a09d1
+		sourceLineageTag: item_type
+		summarizeBy: none
+		sourceColumn: item_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_state
+		dataType: string
+		lineageTag: 90c942dd-18e6-4808-9083-e2680827711c
+		sourceLineageTag: item_state
+		summarizeBy: none
+		sourceColumn: item_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_last_updated
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e2ac1a4b-776d-431d-b5fe-36401441b535
+		sourceLineageTag: item_last_updated
+		summarizeBy: none
+		sourceColumn: item_last_updated
+
+		annotation SummarizationSetBy = Automatic
+
+	column folder_id
+		dataType: string
+		lineageTag: 427642ec-3771-4978-b696-2bb8754ff785
+		sourceLineageTag: folder_id
+		summarizeBy: none
+		sourceColumn: folder_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column creator_name
+		dataType: string
+		lineageTag: 22e08951-829e-4035-8005-d88ecf01c9a3
+		sourceLineageTag: creator_name
+		summarizeBy: none
+		sourceColumn: creator_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column creator_type
+		dataType: string
+		lineageTag: 604c92c7-8328-44c7-a27b-7b54a78c8004
+		sourceLineageTag: creator_type
+		summarizeBy: none
+		sourceColumn: creator_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspace_name
+		dataType: string
+		lineageTag: 3f1f6e33-0249-4c03-b6b6-8530d52a0423
+		sourceLineageTag: workspace_name
+		summarizeBy: none
+		sourceColumn: workspace_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspace_type
+		dataType: string
+		lineageTag: fbc6e2c7-b744-4f29-8c3e-85c919e877cb
+		sourceLineageTag: workspace_type
+		summarizeBy: none
+		sourceColumn: workspace_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspace_state
+		dataType: string
+		lineageTag: 5ecdfc17-a0cc-4580-99a8-ffaa32ae0659
+		sourceLineageTag: workspace_state
+		summarizeBy: none
+		sourceColumn: workspace_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_name
+		dataType: string
+		lineageTag: 4921d087-4e6c-42ac-8fba-5ced15941149
+		sourceLineageTag: capacity_name
+		summarizeBy: none
+		sourceColumn: capacity_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_sku
+		dataType: string
+		lineageTag: 0a553e79-e27f-4ce7-8631-008f14f0f297
+		sourceLineageTag: capacity_sku
+		summarizeBy: none
+		sourceColumn: capacity_sku
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_region
+		dataType: string
+		lineageTag: 89d8338f-e15e-48e5-aab4-f694f446af74
+		sourceLineageTag: capacity_region
+		summarizeBy: none
+		sourceColumn: capacity_region
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_state
+		dataType: string
+		lineageTag: 88a03ffb-90b8-4747-95fd-57a0925f9ea6
+		sourceLineageTag: capacity_state
+		summarizeBy: none
+		sourceColumn: capacity_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_inventory = entity
+		mode: directLake
+		source
+			entityName: dim_inventory
+			schemaName: gold
+			expressionSource: 'DirectLake - lh_metadata'
+

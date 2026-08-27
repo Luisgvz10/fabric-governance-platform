@@ -1,0 +1,88 @@
+table dim_tenant_setting
+	lineageTag: d94ad9cf-c362-4f9a-8a31-0e48fa4c45f4
+	sourceLineageTag: [gold].[dim_tenant_setting]
+
+	column setting_name
+		dataType: string
+		lineageTag: 683bee34-50d3-4799-8cfe-40ce590ca6f1
+		sourceLineageTag: setting_name
+		summarizeBy: none
+		sourceColumn: setting_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column title
+		dataType: string
+		lineageTag: 89a6ef35-6d50-48cc-8000-66dbb469812d
+		sourceLineageTag: title
+		summarizeBy: none
+		sourceColumn: title
+
+		annotation SummarizationSetBy = Automatic
+
+	column tenant_setting_group
+		dataType: string
+		lineageTag: 444c02e7-3bea-47cf-bc2a-bb98ed9a7fa5
+		sourceLineageTag: tenant_setting_group
+		summarizeBy: none
+		sourceColumn: tenant_setting_group
+
+		annotation SummarizationSetBy = Automatic
+
+	column enabled
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a0338ad5-f8d7-4dab-a51f-4f835c1aa867
+		sourceLineageTag: enabled
+		summarizeBy: none
+		sourceColumn: enabled
+
+		annotation SummarizationSetBy = Automatic
+
+	column can_specify_security_groups
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 71a0210e-c10c-4843-9ac4-1664f6f12c9c
+		sourceLineageTag: can_specify_security_groups
+		summarizeBy: none
+		sourceColumn: can_specify_security_groups
+
+		annotation SummarizationSetBy = Automatic
+
+	column delegate_to_capacity
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1068a209-84d3-46b6-a3e0-9083a4e38e57
+		sourceLineageTag: delegate_to_capacity
+		summarizeBy: none
+		sourceColumn: delegate_to_capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column delegate_to_domain
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 537e4b6d-26e3-4a45-b414-3d55abe98ac4
+		sourceLineageTag: delegate_to_domain
+		summarizeBy: none
+		sourceColumn: delegate_to_domain
+
+		annotation SummarizationSetBy = Automatic
+
+	column delegate_to_workspace
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8b16acdd-68c3-4098-a9c2-c15569612b9e
+		sourceLineageTag: delegate_to_workspace
+		summarizeBy: none
+		sourceColumn: delegate_to_workspace
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_tenant_setting = entity
+		mode: directLake
+		source
+			entityName: dim_tenant_setting
+			schemaName: gold
+			expressionSource: 'DirectLake - lh_metadata'
+

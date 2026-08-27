@@ -1,0 +1,62 @@
+table fact_capacity_metrics
+	lineageTag: 3d34aa46-c1f0-4f36-a72c-9ea996a0713f
+	sourceLineageTag: [gold].[fact_capacity_metrics]
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 98b58b5d-da18-42a1-bbf9-c5fe372b6416
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column start_of_hour
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5cbf02ea-1e21-431f-a2b0-520399bebc70
+		sourceLineageTag: start_of_hour
+		summarizeBy: none
+		sourceColumn: start_of_hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_id
+		dataType: string
+		lineageTag: cb62145a-5537-43ad-8745-4cccfa9053a7
+		sourceLineageTag: capacity_id
+		summarizeBy: none
+		sourceColumn: capacity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column background_pct
+		dataType: double
+		lineageTag: 6a242349-f653-48f4-b155-96c0d7a945f9
+		sourceLineageTag: background_pct
+		summarizeBy: average
+		sourceColumn: background_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column interactive_pct
+		dataType: double
+		lineageTag: 926a456e-0f72-4fa0-a93d-56452254d36e
+		sourceLineageTag: interactive_pct
+		summarizeBy: average
+		sourceColumn: interactive_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_capacity_metrics = entity
+		mode: directLake
+		source
+			entityName: fact_capacity_metrics
+			schemaName: gold
+			expressionSource: 'DirectLake - lh_metadata'
+

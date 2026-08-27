@@ -1,0 +1,92 @@
+table dim_workspace
+	lineageTag: 67e9fbc9-8345-4cf9-adaf-98a117ae4ae0
+	sourceLineageTag: [gold].[dim_workspace]
+
+	column capacity_id
+		dataType: string
+		lineageTag: 107cb1b2-c27a-43b2-873f-4277ad97ecad
+		sourceLineageTag: capacity_id
+		summarizeBy: none
+		sourceColumn: capacity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspace_id
+		dataType: string
+		lineageTag: d4aebb88-5cf7-42bb-ae65-ff6710be1faf
+		sourceLineageTag: workspace_id
+		summarizeBy: none
+		sourceColumn: workspace_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspace_name
+		dataType: string
+		lineageTag: 7ca404de-7ab5-4618-9355-c81ca1b8c379
+		sourceLineageTag: workspace_name
+		summarizeBy: none
+		sourceColumn: workspace_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspace_type
+		dataType: string
+		lineageTag: 71c69ce7-0f5c-4595-808c-ba73d3c0361d
+		sourceLineageTag: workspace_type
+		summarizeBy: none
+		sourceColumn: workspace_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspace_state
+		dataType: string
+		lineageTag: d15c47fc-a204-4a56-98a2-12488782467c
+		sourceLineageTag: workspace_state
+		summarizeBy: none
+		sourceColumn: workspace_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_name
+		dataType: string
+		lineageTag: 2839277f-b8b1-4405-9e0c-edf1cec311f3
+		sourceLineageTag: capacity_name
+		summarizeBy: none
+		sourceColumn: capacity_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_sku
+		dataType: string
+		lineageTag: 27a3b7d1-4055-446b-80f1-8ab3e68a23c5
+		sourceLineageTag: capacity_sku
+		summarizeBy: none
+		sourceColumn: capacity_sku
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_region
+		dataType: string
+		lineageTag: 97cfb88c-69ce-4e20-b427-566376a34d5b
+		sourceLineageTag: capacity_region
+		summarizeBy: none
+		sourceColumn: capacity_region
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacity_state
+		dataType: string
+		lineageTag: 1c8f5ab5-5bc3-4345-931f-1d7adcceb3b0
+		sourceLineageTag: capacity_state
+		summarizeBy: none
+		sourceColumn: capacity_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_workspace = entity
+		mode: directLake
+		source
+			entityName: dim_workspace
+			schemaName: gold
+			expressionSource: 'DirectLake - lh_metadata'
+

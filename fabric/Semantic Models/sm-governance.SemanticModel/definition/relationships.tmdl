@@ -1,0 +1,28 @@
+relationship 1c0e890a-d048-3dcf-4fb7-5339e4c7f8b4
+	fromColumn: fact_activity.principal_id
+	toColumn: dim_user.principal_id
+
+relationship c19d5d46-4291-e06a-c7c9-1e685805768e
+	fromColumn: fact_item_access.principal_id
+	toColumn: dim_user.principal_id
+
+relationship e5b4f277-a9a6-87f8-1932-c66bcc503a30
+	fromColumn: dim_inventory.workspace_id
+	toColumn: dim_workspace.workspace_id
+
+relationship 5548f167-079f-03d3-096c-a6cd62aae933
+	fromColumn: fact_lineage.source_id
+	toColumn: dim_inventory.item_id
+
+relationship cb9bf056-7385-175c-4ee2-109cff34fdb0
+	fromColumn: fact_workspace_access.workspace_id
+	toColumn: dim_workspace.workspace_id
+
+relationship 386e94bc-c33c-05d8-5fe4-59c5f8488788
+	fromColumn: fact_workspace_access.principal_id
+	toColumn: dim_user.principal_id
+
+relationship 5f5df136-2c28-a916-b1c6-5568692787b2
+	fromColumn: fact_item_access.item_id
+	toColumn: dim_inventory.item_id
+

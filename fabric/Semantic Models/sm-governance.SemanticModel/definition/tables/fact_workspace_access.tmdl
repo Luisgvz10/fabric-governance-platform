@@ -1,0 +1,38 @@
+table fact_workspace_access
+	lineageTag: d53a979e-376f-4e8f-b421-663171aecd21
+	sourceLineageTag: [gold].[fact_workspace_access]
+
+	column workspace_id
+		dataType: string
+		lineageTag: eab858a5-9126-451b-82e8-67c54b5aa861
+		sourceLineageTag: workspace_id
+		summarizeBy: none
+		sourceColumn: workspace_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column principal_id
+		dataType: string
+		lineageTag: f5a54760-62aa-4607-b960-c8a4a65661f5
+		sourceLineageTag: principal_id
+		summarizeBy: none
+		sourceColumn: principal_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column role
+		dataType: string
+		lineageTag: cb201c41-7a5a-4675-b79f-2bbfde5cffdb
+		sourceLineageTag: role
+		summarizeBy: none
+		sourceColumn: role
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_workspace_access = entity
+		mode: directLake
+		source
+			entityName: fact_workspace_access
+			schemaName: gold
+			expressionSource: 'DirectLake - lh_metadata'
+

@@ -1,0 +1,113 @@
+table fact_activity
+	lineageTag: bb82dcac-c66e-43b2-9797-4f3a65c755db
+	sourceLineageTag: [gold].[fact_activity]
+
+	column activity_id
+		dataType: string
+		lineageTag: ef88f766-2379-4f44-8f49-2812fc296505
+		sourceLineageTag: activity_id
+		summarizeBy: none
+		sourceColumn: activity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column creation_time
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3cd20912-428d-4a86-8bbe-c49b87e1cca8
+		sourceLineageTag: creation_time
+		summarizeBy: none
+		sourceColumn: creation_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column operation
+		dataType: string
+		lineageTag: 09dd7dc4-5063-4987-8708-ec32757064bc
+		sourceLineageTag: operation
+		summarizeBy: none
+		sourceColumn: operation
+
+		annotation SummarizationSetBy = Automatic
+
+	column activity
+		dataType: string
+		lineageTag: 7883faa1-855b-414c-8c9f-4713118a1ff0
+		sourceLineageTag: activity
+		summarizeBy: none
+		sourceColumn: activity
+
+		annotation SummarizationSetBy = Automatic
+
+	column user_type
+		dataType: int64
+		formatString: 0
+		lineageTag: 604aeee8-7c53-4501-8a0a-c630626779e0
+		sourceLineageTag: user_type
+		summarizeBy: none
+		sourceColumn: user_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column workload
+		dataType: string
+		lineageTag: 5bf4d599-53ec-42a5-adee-4822c7708c50
+		sourceLineageTag: workload
+		summarizeBy: none
+		sourceColumn: workload
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_name
+		dataType: string
+		lineageTag: 3ad7442f-f5e6-420a-8502-4a7baff279cd
+		sourceLineageTag: item_name
+		summarizeBy: none
+		sourceColumn: item_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column workspace_name
+		dataType: string
+		lineageTag: 72b9ffc3-a0d2-4129-b470-e1d2ddf28c65
+		sourceLineageTag: workspace_name
+		summarizeBy: none
+		sourceColumn: workspace_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_success
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: cf4e1e2d-b04c-4db2-b9bb-18dd7b58da11
+		sourceLineageTag: is_success
+		summarizeBy: none
+		sourceColumn: is_success
+
+		annotation SummarizationSetBy = Automatic
+
+	column user_id_raw
+		dataType: string
+		lineageTag: 08dd7395-9ca6-4bf9-b5be-0ea627e2362b
+		sourceLineageTag: user_id_raw
+		summarizeBy: none
+		sourceColumn: user_id_raw
+
+		annotation SummarizationSetBy = Automatic
+
+	column principal_id
+		dataType: string
+		lineageTag: 829406b2-8016-47d2-8136-3c6cd2ea605b
+		sourceLineageTag: principal_id
+		summarizeBy: none
+		sourceColumn: principal_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_activity = entity
+		mode: directLake
+		source
+			entityName: fact_activity
+			schemaName: gold
+			expressionSource: 'DirectLake - lh_metadata'
+

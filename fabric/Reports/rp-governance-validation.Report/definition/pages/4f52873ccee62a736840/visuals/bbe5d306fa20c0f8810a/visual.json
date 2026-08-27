@@ -1,0 +1,190 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "bbe5d306fa20c0f8810a",
+  "position": {
+    "x": 40.625,
+    "y": 201.5625,
+    "z": 4000,
+    "height": 835.9375,
+    "width": 1835.9375,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_tenant_setting"
+                    }
+                  },
+                  "Property": "tenant_setting_group"
+                }
+              },
+              "queryRef": "dim_tenant_setting.tenant_setting_group",
+              "nativeQueryRef": "tenant_setting_group"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_tenant_setting"
+                    }
+                  },
+                  "Property": "title"
+                }
+              },
+              "queryRef": "dim_tenant_setting.title",
+              "nativeQueryRef": "title"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_tenant_setting"
+                    }
+                  },
+                  "Property": "setting_name"
+                }
+              },
+              "queryRef": "dim_tenant_setting.setting_name",
+              "nativeQueryRef": "setting_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_tenant_setting"
+                    }
+                  },
+                  "Property": "enabled"
+                }
+              },
+              "queryRef": "dim_tenant_setting.enabled",
+              "nativeQueryRef": "enabled"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_tenant_setting"
+                    }
+                  },
+                  "Property": "can_specify_security_groups"
+                }
+              },
+              "queryRef": "dim_tenant_setting.can_specify_security_groups",
+              "nativeQueryRef": "can_specify_security_groups"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_tenant_setting"
+                    }
+                  },
+                  "Property": "delegate_to_capacity"
+                }
+              },
+              "queryRef": "dim_tenant_setting.delegate_to_capacity",
+              "nativeQueryRef": "delegate_to_capacity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_tenant_setting"
+                    }
+                  },
+                  "Property": "delegate_to_domain"
+                }
+              },
+              "queryRef": "dim_tenant_setting.delegate_to_domain",
+              "nativeQueryRef": "delegate_to_domain"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_tenant_setting"
+                    }
+                  },
+                  "Property": "delegate_to_workspace"
+                }
+              },
+              "queryRef": "dim_tenant_setting.delegate_to_workspace",
+              "nativeQueryRef": "delegate_to_workspace"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_tenant_setting"
+                  }
+                },
+                "Property": "tenant_setting_group"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "506.6651858589243D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_tenant_setting.title"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "372.9992543320764D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_tenant_setting.setting_name"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

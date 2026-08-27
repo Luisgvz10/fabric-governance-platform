@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "08_silver_capacity_metrics"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "406c0352-e46e-bed8-4642-836dba60c430"
+  }
+}
