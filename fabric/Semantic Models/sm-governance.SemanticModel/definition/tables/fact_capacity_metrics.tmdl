@@ -35,7 +35,7 @@ table fact_capacity_metrics
 		dataType: double
 		lineageTag: 6a242349-f653-48f4-b155-96c0d7a945f9
 		sourceLineageTag: background_pct
-		summarizeBy: average
+		summarizeBy: sum
 		sourceColumn: background_pct
 
 		annotation SummarizationSetBy = Automatic
@@ -46,7 +46,7 @@ table fact_capacity_metrics
 		dataType: double
 		lineageTag: 926a456e-0f72-4fa0-a93d-56452254d36e
 		sourceLineageTag: interactive_pct
-		summarizeBy: average
+		summarizeBy: sum
 		sourceColumn: interactive_pct
 
 		annotation SummarizationSetBy = Automatic

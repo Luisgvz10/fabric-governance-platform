@@ -1,0 +1,60 @@
+table dim_date
+	lineageTag: 7b9c2c23-bf56-43e3-b7e0-22c131c63114
+	sourceLineageTag: [gold].[dim_date]
+
+	column start_of_hour
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 980322b7-9ca3-4c27-a4f6-ad13c1e7cbb7
+		sourceLineageTag: start_of_hour
+		summarizeBy: none
+		sourceColumn: start_of_hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a6533994-1676-4bea-8f08-d9b6d9ccf09a
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column hour
+		dataType: int64
+		formatString: 0
+		lineageTag: a2ebfe7f-1e7f-4b45-9f43-98f2cc6bb395
+		sourceLineageTag: hour
+		summarizeBy: none
+		sourceColumn: hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: string
+		lineageTag: d09f380a-8311-4193-ab3d-5770aedbaf2e
+		sourceLineageTag: day_of_week
+		summarizeBy: none
+		sourceColumn: day_of_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: aba2a0c1-e274-4b19-ab01-77b46447b7d0
+		sourceLineageTag: is_weekend
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: gold
+			expressionSource: 'DirectLake - lh_metadata'
+

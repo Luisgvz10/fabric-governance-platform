@@ -26,3 +26,7 @@ relationship 5f5df136-2c28-a916-b1c6-5568692787b2
 	fromColumn: fact_item_access.item_id
 	toColumn: dim_inventory.item_id
 
+relationship 21e6c38d-50aa-e4b9-3bda-3e63addc5bd0
+	fromColumn: fact_capacity_metrics.start_of_hour
+	toColumn: dim_date.start_of_hour
+

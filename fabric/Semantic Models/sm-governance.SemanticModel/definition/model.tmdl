@@ -22,4 +22,5 @@ ref table dim_tenant_setting
 ref table dim_workspace
 ref table fact_capacity_metrics
 ref table _Measures
+ref table dim_date
 
