@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 40,
     "width": 940,
-    "tabOrder": 5000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "textbox",
@@ -26,11 +26,19 @@
                     }
                   },
                   {
-                    "value": " - Inventory",
+                    "value": " - ",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
                       "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": "Inventory",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "20pt"
                     }
                   }
                 ]

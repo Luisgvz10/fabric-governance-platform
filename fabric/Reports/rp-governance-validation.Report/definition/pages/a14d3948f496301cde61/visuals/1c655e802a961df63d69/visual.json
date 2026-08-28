@@ -5,8 +5,8 @@
     "x": 0,
     "y": 0,
     "z": 0,
-    "height": 82.926829268292693,
-    "width": 293.90243902439028,
+    "height": 86.138592539245764,
+    "width": 293.50318322567182,
     "tabOrder": 0
   },
   "visual": {
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_inventory"
+                      "Entity": "dim_workspace"
                     }
                   },
                   "Property": "capacity_name"
                 }
               },
-              "queryRef": "dim_inventory.capacity_name",
+              "queryRef": "dim_workspace.capacity_name",
               "nativeQueryRef": "capacity_name",
               "active": true
             }
@@ -57,6 +57,47 @@
                   "Value": "1D"
                 }
               }
+            },
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "dim_workspace",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "d"
+                                }
+                              },
+                              "Property": "capacity_name"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'fabricgov'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
             }
           }
         }
@@ -67,7 +108,14 @@
             "outlineStyle": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "0D"
+                }
+              }
+            },
+            "padding": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
                 }
               }
             }

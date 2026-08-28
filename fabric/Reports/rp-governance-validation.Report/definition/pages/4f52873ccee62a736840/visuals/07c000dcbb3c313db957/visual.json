@@ -26,11 +26,19 @@
                     }
                   },
                   {
-                    "value": " - Tenant Configuration",
+                    "value": " - ",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
                       "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": "Tenant Configuration",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "20pt"
                     }
                   }
                 ]

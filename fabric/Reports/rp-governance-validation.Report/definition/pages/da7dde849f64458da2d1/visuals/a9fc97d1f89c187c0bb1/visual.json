@@ -7,7 +7,7 @@
     "z": 1000,
     "height": 40,
     "width": 940,
-    "tabOrder": 2000
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "textbox",
@@ -26,11 +26,19 @@
                     }
                   },
                   {
-                    "value": " - Security",
+                    "value": " - ",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
                       "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": "Security",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "20pt"
                     }
                   }
                 ]

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "c2d08e14f858b6f21369",
   "position": {
-    "x": 252.56410256410257,
-    "y": 123.07692307692307,
-    "z": 1000,
-    "height": 83.333333333333329,
-    "width": 223.07692307692307,
-    "tabOrder": 4001
+    "x": 533.33333333333337,
+    "y": 126.01626016260163,
+    "z": 2000,
+    "height": 83.739837398373979,
+    "width": 198.3739837398374,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_inventory"
+                      "Entity": "dim_workspace"
                     }
                   },
                   "Property": "workspace_name"
                 }
               },
-              "queryRef": "dim_inventory.workspace_name",
+              "queryRef": "dim_workspace.workspace_name",
               "nativeQueryRef": "workspace_name",
               "active": true
             }
@@ -56,47 +56,6 @@
                 "Literal": {
                   "Value": "1D"
                 }
-              }
-            },
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "d",
-                    "Entity": "dim_inventory",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "d"
-                                }
-                              },
-                              "Property": "workspace_name"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'ws-governance'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
               }
             }
           }

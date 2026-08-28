@@ -26,11 +26,19 @@
                     }
                   },
                   {
-                    "value": " - Lineage",
+                    "value": " - ",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
                       "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": "Lineage",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "20pt"
                     }
                   }
                 ]

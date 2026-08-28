@@ -26,11 +26,19 @@
                     }
                   },
                   {
-                    "value": " - Activity",
+                    "value": " - ",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontFamily": "Segoe UI",
                       "fontSize": "14pt"
+                    }
+                  },
+                  {
+                    "value": "Activity",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "20pt"
                     }
                   }
                 ]

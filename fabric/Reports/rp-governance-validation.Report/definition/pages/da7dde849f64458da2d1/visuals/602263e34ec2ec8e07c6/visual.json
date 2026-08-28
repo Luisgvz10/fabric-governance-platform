@@ -4,10 +4,10 @@
   "position": {
     "x": 26.923076923076923,
     "y": 225.64102564102564,
-    "z": 4006,
+    "z": 10000,
     "height": 826.92307692307691,
     "width": 483.33333333333331,
-    "tabOrder": 4007
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "tableEx",
@@ -94,7 +94,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Workspace Access'"
+                  "Value": "'User List'"
                 }
               }
             }

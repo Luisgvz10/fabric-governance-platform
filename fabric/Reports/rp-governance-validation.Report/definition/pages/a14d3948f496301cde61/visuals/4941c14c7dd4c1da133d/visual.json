@@ -3,10 +3,10 @@
   "name": "4941c14c7dd4c1da133d",
   "position": {
     "x": 0,
-    "y": 520.73170731707319,
+    "y": 540.89969138614617,
     "z": 5000,
-    "height": 82.926829268292693,
-    "width": 293.90243902439028,
+    "height": 86.138592539245764,
+    "width": 293.50318322567182,
     "tabOrder": 5000
   },
   "visual": {
@@ -84,7 +84,14 @@
             "outlineStyle": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "0D"
+                }
+              }
+            },
+            "padding": {
+              "expr": {
+                "Literal": {
+                  "Value": "3D"
                 }
               }
             }

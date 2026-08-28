@@ -138,6 +138,17 @@ for ws_config in WORKSPACES:
 
 # Fase B — manual, antes de seguir: ve a cada uno de los 5 workspaces → Workspace settings → License info → asigna fabricgov.
 
+CREATE_ITEM = {
+    "lakehouse": fabric.create_lakehouse,
+    "warehouse": fabric.create_warehouse,
+    "notebook": fabric.create_notebook,
+    "pipeline": fabric.create_pipeline,
+    "eventstream": fabric.create_eventstream,
+    "eventhouse": fabric.create_eventhouse,
+    "ml_experiment": fabric.create_ml_experiment,
+    "ml_model": fabric.create_ml_model,
+}
+
 # Fase C: crear carpetas e items:
 
 existing_workspaces = {w["displayName"]: w["id"] for w in fabric.get("/workspaces")["value"]}

@@ -166,3 +166,14 @@ print(f"bronze.activity: {spark.table('bronze.activity').count()} filas totales"
 # META   "language": "python",
 # META   "language_group": "synapse_pyspark"
 # META }
+
+# CELL ********************
+
+OPTIMIZE bronze.activity
+
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }

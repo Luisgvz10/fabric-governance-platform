@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "3b1a4e0efd3d6af8e61e",
   "position": {
-    "x": 874.35897435897436,
-    "y": 20.512820512820511,
-    "z": 4005,
-    "height": 76.92307692307692,
-    "width": 1021.7948717948717,
-    "tabOrder": 4006
+    "x": 873.98373983739839,
+    "y": 27.64227642276423,
+    "z": 9000,
+    "height": 65.040650406504071,
+    "width": 1021.9512195121952,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -51,39 +51,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "% Direct User Access"
-                }
-              },
-              "queryRef": "_Measures.% Direct User Access",
-              "nativeQueryRef": "% Direct User Access"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
                   "Property": "Distinct Principals With Access"
                 }
               },
               "queryRef": "_Measures.Distinct Principals With Access",
               "nativeQueryRef": "Distinct Principals With Access"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Total Item Permissions"
-                }
-              },
-              "queryRef": "_Measures.Total Item Permissions",
-              "nativeQueryRef": "Total Item Permissions"
             }
           ]
         }

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "6042092e64a669462f82",
   "position": {
-    "x": 365.625,
-    "y": 128.125,
+    "x": 52.032520325203251,
+    "y": 117.88617886178862,
     "z": 3000,
-    "height": 62.5,
-    "width": 493.75,
-    "tabOrder": 1000
+    "height": 269.10569105691059,
+    "width": 288.6178861788618,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "cardVisual",
@@ -17,17 +17,23 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_workspace"
+                        }
+                      },
+                      "Property": "capacity_id"
                     }
                   },
-                  "Property": "Total Capacities"
+                  "Function": 2
                 }
               },
-              "queryRef": "_Measures.Total Capacities",
-              "nativeQueryRef": "Total Capacities"
+              "queryRef": "Min(dim_workspace.capacity_id)",
+              "nativeQueryRef": "Total Capacities",
+              "displayName": "Total Capacities"
             },
             {
               "field": {
@@ -64,13 +70,18 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Measures"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dim_workspace"
+                      }
+                    },
+                    "Property": "capacity_id"
                   }
                 },
-                "Property": "Total Capacities"
+                "Function": 2
               }
             },
             "direction": "Descending"
@@ -87,6 +98,96 @@
               "expr": {
                 "Literal": {
                   "Value": "'Left'"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "layout": [
+        {
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "cellPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "14L"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "paddingUniform": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "cardCalloutArea": [
+        {
+          "properties": {
+            "paddingUniform": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "fillCustom": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0.6
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "90D"
                 }
               }
             }

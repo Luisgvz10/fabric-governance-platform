@@ -2,10 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "Notebook",
-    "displayName": "06_bronze_tenant_settings "
+    "displayName": "09_silver_calendar",
+    "description": "New notebook"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "61d70861-d660-abaa-4604-c189b96a2891"
+    "logicalId": "97f38d44-c4cd-944e-4e63-fb2f267eec13"
   }
 }

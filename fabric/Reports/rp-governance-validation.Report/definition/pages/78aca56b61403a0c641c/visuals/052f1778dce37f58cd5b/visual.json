@@ -4,10 +4,10 @@
   "position": {
     "x": 255.12820512820511,
     "y": 435.89743589743586,
-    "z": 5002,
+    "z": 5000,
     "height": 83.333333333333329,
     "width": 208.97435897435898,
-    "tabOrder": 5002
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "slicer",
@@ -55,6 +55,13 @@
               "expr": {
                 "Literal": {
                   "Value": "1D"
+                }
+              }
+            },
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

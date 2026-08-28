@@ -3,11 +3,11 @@
   "name": "f26d096ebd244d558da7",
   "position": {
     "x": 365.85365853658539,
-    "y": 219.51219512195124,
+    "y": 117.88617886178862,
     "z": 4000,
-    "height": 806.09756097560978,
-    "width": 1079.2682926829268,
-    "tabOrder": 2000
+    "height": 926.829268292683,
+    "width": 1518.69918699187,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -84,6 +84,34 @@
               },
               "queryRef": "dim_inventory.item_state",
               "nativeQueryRef": "item_state"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_inventory"
+                    }
+                  },
+                  "Property": "creator_type"
+                }
+              },
+              "queryRef": "dim_inventory.creator_type",
+              "nativeQueryRef": "creator_type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_inventory"
+                    }
+                  },
+                  "Property": "creator_name"
+                }
+              },
+              "queryRef": "dim_inventory.creator_name",
+              "nativeQueryRef": "creator_name"
             }
           ]
         }
@@ -140,6 +168,21 @@
       "columnHeaders": [
         {
           "properties": {}
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inventory List'"
+                }
+              }
+            }
+          }
         }
       ]
     },

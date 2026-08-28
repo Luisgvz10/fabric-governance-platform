@@ -24,8 +24,7 @@
 
 # ## Gold — `fact_item_access`
 # 
-# **Grano.** Una fila por *(item, principal, permiso)* — el mismo que `silver.item_access`. No hay `join`: `item_id` ya enlaza con `gold.dim_inventory` y `principal_id` con `gold.dim_user`, así que el cruce queda para el momento de la consulta, no para esta tabla. Se mantienen `principal_display_name`, `principal_type` e `item_type` como columnas descriptivas sueltas —igual que `item_name` en `fact_activity`— porque `dim_user` todavía no cubre a los usuarios individuales que este endpoint sí revela (ver discusión pendiente sobre ampliar `dim_user`); cuando se resuelva, estos campos se sustituirán por la FK correspondiente.
-
+# **Grano.** Una fila por *(item, principal, permiso)* — el mismo que `silver.item_access`. No hay `join`: `item_id` ya enlaza con `gold.dim_inventory` y `principal_id` con `gold.dim_user`, así que el cruce queda para el momento de la consulta, no para esta tabla. Se mantienen `principal_display_name`, `principal_type` e `item_type` como columnas descriptivas sueltas —igual que `item_name` en `fact_activity`
 
 # CELL ********************
 
