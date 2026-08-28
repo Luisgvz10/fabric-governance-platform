@@ -115,39 +115,6 @@ report_dataset_edges = (
 
 # CELL ********************
 
-# RELACIÓN 2: report -> dataset (reports[].datasetId)
-
-reports_exploded = (
-    bronze_workspace_scan
-    .select(
-        F.col("id").alias("workspace_id"),
-        F.explode("reports").alias("report"),
-    )
-)
-
-report_dataset_edges = (
-    reports_exploded
-    .filter(F.col("report.datasetId").isNotNull())
-    .select(
-        F.col("workspace_id"),
-        F.lit("Report").alias("source_type"),
-        F.col("report.id").alias("source_id"),
-        F.col("report.name").alias("source_name"),
-        F.lit("DependsOnDataset").alias("relationship_type"),
-        F.lit("Dataset").alias("target_type"),
-        F.col("report.datasetId").alias("target_id"),
-    )
-)
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
 # UNIÓN Y ESCRITURA EN SILVER
 
 silver_lineage = dataset_datasource_edges.unionByName(report_dataset_edges)
