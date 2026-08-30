@@ -169,7 +169,7 @@ print(f"bronze.activity: {spark.table('bronze.activity').count()} filas totales"
 
 # CELL ********************
 
-OPTIMIZE bronze.activity
+spark.sql("OPTIMIZE bronze.activity")
 
 # METADATA ********************
 

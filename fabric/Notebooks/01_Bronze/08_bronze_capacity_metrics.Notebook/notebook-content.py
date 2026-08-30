@@ -192,7 +192,7 @@ display(df)
 
 # CELL ********************
 
-OPTIMIZE bronze.capacity_metrics
+spark.sql("OPTIMIZE bronze.capacity_metrics")
 
 # METADATA ********************
 
