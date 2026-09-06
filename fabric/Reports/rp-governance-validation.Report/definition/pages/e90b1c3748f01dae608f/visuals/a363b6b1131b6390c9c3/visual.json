@@ -5,8 +5,8 @@
     "x": 0,
     "y": 0,
     "z": 0,
-    "height": 79.674796747967477,
-    "width": 376.42276422764229
+    "height": 80.654321795459012,
+    "width": 519.35353006608648
   },
   "visual": {
     "visualType": "slicer",
@@ -19,13 +19,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "fact_capacity_metrics"
+                      "Entity": "dim_date"
                     }
                   },
                   "Property": "date"
                 }
               },
-              "queryRef": "fact_capacity_metrics.date",
+              "queryRef": "dim_date.date",
               "nativeQueryRef": "date",
               "active": true,
               "format": "d"
@@ -40,7 +40,7 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "fact_capacity_metrics"
+                    "Entity": "dim_date"
                   }
                 },
                 "Property": "date"
@@ -81,8 +81,8 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "f",
-                    "Entity": "fact_capacity_metrics",
+                    "Name": "d",
+                    "Entity": "dim_date",
                     "Type": 0
                   }
                 ],
@@ -97,7 +97,7 @@
                               "Column": {
                                 "Expression": {
                                   "SourceRef": {
-                                    "Source": "f"
+                                    "Source": "d"
                                   }
                                 },
                                 "Property": "date"
@@ -105,7 +105,7 @@
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "datetime'2026-08-22T00:00:00'"
+                                "Value": "datetime'2026-08-23T00:00:00'"
                               }
                             }
                           }
@@ -117,7 +117,7 @@
                               "Column": {
                                 "Expression": {
                                   "SourceRef": {
-                                    "Source": "f"
+                                    "Source": "d"
                                   }
                                 },
                                 "Property": "date"
@@ -125,7 +125,7 @@
                             },
                             "Right": {
                               "Literal": {
-                                "Value": "datetime'2026-08-24T00:00:00'"
+                                "Value": "datetime'2026-08-30T00:00:00'"
                               }
                             }
                           }
@@ -166,6 +166,19 @@
         }
       ],
       "slider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "relativeText": [
         {
           "properties": {
             "show": {

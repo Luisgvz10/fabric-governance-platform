@@ -1,57 +1,34 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "bab75017af074b2efa31",
+  "name": "8e1a8e2335201af2ab08",
   "position": {
     "x": 39.837398373983739,
-    "y": 217.07317073170731,
-    "z": 3000,
-    "height": 820.32520325203257,
-    "width": 1157.7235772357724,
-    "tabOrder": 1000
+    "y": 108.9430894308943,
+    "z": 5001,
+    "height": 79.674796747967477,
+    "width": 610.569105691057,
+    "tabOrder": 4001
   },
   "visual": {
-    "visualType": "barChart",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
-        "Category": {
+        "Data": {
           "projections": [
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_date"
+                      "Entity": "_Measures"
                     }
                   },
-                  "Property": "date"
+                  "Property": "Hours Over 100% CU"
                 }
               },
-              "queryRef": "dim_date.date",
-              "nativeQueryRef": "date",
-              "active": true,
-              "format": "d"
+              "queryRef": "_Measures.Hours Over 100% CU",
+              "nativeQueryRef": "Hours Over 100% CU"
             },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_date"
-                    }
-                  },
-                  "Property": "start_of_hour"
-                }
-              },
-              "queryRef": "dim_date.start_of_hour",
-              "nativeQueryRef": "start_of_hour",
-              "active": true,
-              "format": "t"
-            }
-          ],
-          "showAll": true
-        },
-        "Y": {
-          "projections": [
             {
               "field": {
                 "Measure": {
@@ -64,8 +41,7 @@
                 }
               },
               "queryRef": "_Measures.Background CU %",
-              "nativeQueryRef": "Background CU %",
-              "format": "0.00 %;-0.00 %;0.00 %"
+              "nativeQueryRef": "Background CU %"
             },
             {
               "field": {
@@ -79,8 +55,7 @@
                 }
               },
               "queryRef": "_Measures.Interactive CU %",
-              "nativeQueryRef": "Interactive CU %",
-              "format": "0.00 %;-0.00 %;0.00 %"
+              "nativeQueryRef": "Interactive CU %"
             }
           ]
         }
@@ -89,62 +64,135 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "dim_date"
+                    "Entity": "_Measures"
                   }
                 },
-                "Property": "date"
-              }
-            },
-            "direction": "Descending"
-          },
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_date"
-                  }
-                },
-                "Property": "start_of_hour"
+                "Property": "Hours Over 100% CU"
               }
             },
             "direction": "Descending"
           }
-        ]
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
-      "valueAxis": [
+      "accentBar": [
         {
           "properties": {
-            "end": {
+            "position": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "'Left'"
                 }
               }
             },
-            "fontSize": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "layout": [
+        {
+          "properties": {
+            "orientation": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "2D"
                 }
               }
             },
-            "showAxisTitle": {
+            "cellPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "14L"
+                }
+              }
+            },
+            "autoGrid": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
           }
+        },
+        {
+          "properties": {
+            "paddingUniform": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
         }
       ],
-      "totals": [
+      "cardCalloutArea": [
+        {
+          "properties": {
+            "paddingUniform": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "fillCustom": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFA0FF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "90D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "border": [
         {
           "properties": {
             "show": {
@@ -154,26 +202,16 @@
                 }
               }
             }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ],
-      "labels": [
+      "outline": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "fill": {
+            "lineColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -184,77 +222,50 @@
                   }
                 }
               }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Background CU %"
-          }
-        },
-        {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 4,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Interactive CU %"
-          }
-        }
-      ]
-    },
-    "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "background": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#FDF5FA'"
-                    }
-                  }
-                }
-              }
             },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 4,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            },
-            "text": {
+            "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "'CU Usage'"
+                  "Value": "95D"
+                }
+              }
+            },
+            "weight": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
                 }
               }
             }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ],
-      "divider": [
+      "shadowCustom": [
         {
           "properties": {
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "glowCustom": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             },
@@ -263,17 +274,35 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 4,
+                      "ColorId": 0,
                       "Percent": 0
                     }
                   }
                 }
               }
             },
-            "width": {
+            "position": {
               "expr": {
                 "Literal": {
-                  "Value": "3D"
+                  "Value": "'Inner'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

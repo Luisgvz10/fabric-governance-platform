@@ -5,8 +5,8 @@
     "x": 0,
     "y": 0,
     "z": 0,
-    "height": 79.674796747967463,
-    "width": 308.9430894308943
+    "height": 54.272067002551857,
+    "width": 248.746973761696
   },
   "visual": {
     "visualType": "slicer",
@@ -166,6 +166,32 @@
         }
       ],
       "slider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dateRangeText": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "relativeText": [
         {
           "properties": {
             "show": {

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "6042092e64a669462f82",
+  "name": "bffc039f96ef7b381932",
   "position": {
-    "x": 52.032520325203251,
-    "y": 117.88617886178862,
-    "z": 3000,
-    "height": 269.10569105691059,
-    "width": 288.6178861788618,
-    "tabOrder": 0
+    "x": 1274.6397958516,
+    "y": 11.306680625531637,
+    "z": 10001,
+    "height": 57.28718183602696,
+    "width": 610.56075377870843,
+    "tabOrder": 9001
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,11 +23,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Capacities"
+                  "Property": "Total Activities"
                 }
               },
-              "queryRef": "_Measures.Total Capacities",
-              "nativeQueryRef": "Total Capacities1"
+              "queryRef": "_Measures.Total Activities",
+              "nativeQueryRef": "Total Activities",
+              "format": "#,0"
             },
             {
               "field": {
@@ -37,11 +38,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Workspaces"
+                  "Property": "Total Failed Activities"
                 }
               },
-              "queryRef": "_Measures.Total Workspaces",
-              "nativeQueryRef": "Total Workspaces"
+              "queryRef": "_Measures.Total Failed Activities",
+              "nativeQueryRef": "Total Failed Activities"
             },
             {
               "field": {
@@ -51,11 +52,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Items"
+                  "Property": "% Failed Activities"
                 }
               },
-              "queryRef": "_Measures.Total Items",
-              "nativeQueryRef": "Total Items"
+              "queryRef": "_Measures.% Failed Activities",
+              "nativeQueryRef": "% Failed Activities"
             }
           ]
         }
@@ -70,7 +71,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Total Capacities"
+                "Property": "Total Activities"
               }
             },
             "direction": "Descending"
@@ -114,7 +115,7 @@
             "orientation": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "2D"
                 }
               }
             },
@@ -156,6 +157,13 @@
               "expr": {
                 "Literal": {
                   "Value": "0L"
+                }
+              }
+            },
+            "paddingIndividual": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -293,6 +301,43 @@
             "id": "default"
           }
         }
+      ],
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total Activities"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -311,37 +356,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "f99b75b06c5e6ab2699d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Total Workspaces"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f1b54dba86c65b033e64",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Total Items"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
